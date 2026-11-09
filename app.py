@@ -1,4 +1,3 @@
-
 import os
 import uuid
 import sqlite3
@@ -973,15 +972,11 @@ user_input = st.chat_input(
 
 if user_input:
 
-    # SHOW USER MESSAGE
-
     with st.chat_message("user"):
 
         st.markdown(
             user_input
         )
-
-    # GENERATE AI ANSWER
 
     with st.chat_message("assistant"):
 
@@ -995,14 +990,10 @@ if user_input:
                     memory
                 )
 
-                # DISPLAY COMPLETE MARKDOWN ANSWER
-
                 st.markdown(
                     answer,
                     unsafe_allow_html=False
                 )
-
-                # SAVE CONVERSATION
 
                 save_conversation(
                     st.session_state.chat_id,
@@ -1020,7 +1011,4 @@ if user_input:
                     "Check the selected Ollama model "
                     "and try again."
                 )
-
-    # REFRESH CHAT HISTORY
-
     st.rerun()
